@@ -1,0 +1,40 @@
+<div class="pad">
+    <div class="text-center">
+        <!-- <h1 class="display-4" style="color: white;">Welcome to quiz mania!!!</h1> -->
+    </div>
+    
+    <hr />
+    <div *ngIf="join" class="text-center col-md-6 offset-md-3" id="joinquiz">
+        <h3>Join a Quiz</h3><br>
+        <form [formGroup]="JoinGameForm" (ngSubmit)="submitjoinG()" class="validate-form" autocomplete="off">
+                <span class="msg" *ngIf="!JoinGameForm.get('code').valid && JoinGameForm.get('code').touched && !JoinGameForm.get('code').length!=5">
+                    (*Invalid Code)</span>
+                <div *ngIf="JoinGameForm.hasError('whitespace')">Please enter valid data</div>
+                <input formControlName="code" type="text" placeholder="Enter Quiz Code" name="code" class="form-control" required> <br />
+            <button [disabled]="JoinGameForm.invalid" class="btn btn-outline-info btn-block">Go</button>
+        </form><br>
+        <a href="#" (click)="back()">Back</a>
+    </div>
+    
+    
+    <div *ngIf="host" class="text-center col-md-6 offset-md-3" id="hostquiz">
+        <h3>Manage a Quiz</h3><br>
+        <form method="get" action="/quiz/admin">
+    
+            <a routerLink="/quiz/create" class="btn btn-block btn-outline-success">Host a new quiz</a><br />
+            <p>Or</p>
+            <p>
+                <a routerLink="/host" class="btn btn-block btn-outline-warning">List all quizes</a>
+            </p>
+        </form><br>
+        <a  href="#" (click)="back()">Back</a>
+    </div>
+    
+    <div *ngIf="home" class="text-center col-md-6 offset-md-3" id="selectquiz">
+        <div class="col-md-6 offset-md-3">
+            <button class="btn btn-outline-danger btn-block" (click)="showj()">I am playing a Quiz</button>
+            <button class="btn btn-outline-primary btn-block" (click)="showh()">I am hosting a Quiz</button>
+        </div>
+    </div>
+    
+</div>

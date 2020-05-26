@@ -1,0 +1,24 @@
+<div *ngIf="quiz" class=" col-md-6 offset-md-3 box">
+    <h4 class="head">Quiz Setup</h4>
+    <hr />
+    <h4>{{quiz.title}}</h4>
+
+    <div class="col-md-6 offset-md-3">
+        <p>Quiz Access Code : {{quiz.code}}</p>
+    </div>
+    <hr />
+    <div class="que row">
+       <div class="col-md-6">
+        <h4>Questions</h4>
+        <button type="button" (click)="CreateQ()" class="btn btn-outline-primary">Add Questions</button>
+       </div>
+        <div class="col-md-6">
+            <div *ngFor="let que of Questions" class="col-md-6 offset-md-3">
+                <p>{{que.questionText}}</p>
+            </div>
+        </div>
+    </div>
+    <hr />
+    <button type="button" (click)="StartQ()" class="btn btn-outline-warning">Start Quiz</button>
+
+</div>

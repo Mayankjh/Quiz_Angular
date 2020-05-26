@@ -1,0 +1,12 @@
+.nav{
+    background: transparent;
+}
+.navbar-brand,a{
+    color: white;
+}
+h1{
+    color: white !important;
+}
+a{
+    cursor: pointer;
+}

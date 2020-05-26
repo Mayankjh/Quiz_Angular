@@ -1,0 +1,61 @@
+<div class="col-md-6 offset-md-3">
+    <h1>Hosted Quiz</h1><br>
+<p *ngIf="!games">No Hosted Quiz yet</p>
+    <table class="table table-responsive" *ngIf="games">
+        <thead>
+            <tr>
+                <th>
+                    Title
+                </th>
+                <th>
+                    Quiz Code
+                </th>
+                <th>
+                    Started
+                </th>
+                <th>
+                    Created On
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+    <ng-container *ngFor="let item of games | paginate: { itemsPerPage: 5, currentPage: p }">
+            <tr>
+                <td>
+                    {{item.title}}
+                </td>
+                <td>
+                    {{item.code}}
+                </td>
+                <td>
+                    {{item.started}}
+                </td>
+                <td>
+                   {{item.createdon}}
+                </td>
+                <td>
+                    <!-- @if (item.Ended)
+                    { -->
+                    <p *ngIf="item.ended">
+                        <a (click)="getsummary(item.code)">View Summary!</a>
+                    </p>
+                    <!-- }
+                    else
+                    { -->
+                    <p *ngIf="!item.ended">
+                        <a (click)="QuizSetup(item.code)">Setup</a> |
+                        <a (click)="StartGame(item.code)">Start Game!</a>
+                    </p>
+                    <!-- } -->
+                    
+                </td>
+            </tr>
+    </ng-container>
+        </tbody>
+    </table>
+    
+</div>
+<div *ngIf="games" class="col-md-6 offset-md-4">
+    <pagination-controls class="pagec" (pageChange)="p = $event"></pagination-controls>
+</div>

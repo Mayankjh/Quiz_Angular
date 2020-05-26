@@ -1,0 +1,17 @@
+<div *ngIf="Question" class="col-md-6 offset-md-3">
+    <h3 class="head">Question Details</h3>
+<br>
+    <div>
+        <h5>{{Question.questionText}}</h5>
+        <hr />
+        <ul>
+        <ng-container *ngFor="let ans of Answers">
+                <div class="col-md-6"><p>UserId: {{ans.userId}}</p></div>
+                <div class="col-md-6"><p>Answer: {{ans.answerText}}</p></div>
+        </ng-container> 
+        </ul>
+    </div>
+
+
+    <a (click)="GetNextQuestion()">Load Next Question</a>
+</div>

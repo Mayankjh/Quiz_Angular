@@ -1,0 +1,36 @@
+<div class="col-md-6 offset-md-3 box" *ngIf="quiz">
+    <h1 class="head">Quiz Summary</h1>
+    <hr />
+    <h4>{{quiz.title}}</h4>
+
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            <p>Quiz Access Code : {{quiz.code}}</p>
+
+        </div>
+    </div>
+
+    <hr />
+
+    <h4>Question and Answers</h4>
+    <div class="que">
+        <ng-container *ngFor="let que of Questions">
+
+
+            <div>
+                <p><strong>{{que.questionText}}</strong></p>
+            </div>
+            <ng-container *ngFor="let ans of Answers">
+                <div *ngIf="que.id==ans.question.id">
+
+                    <div class="col-md-6">
+                        <p *ngIf="que.id==ans.questionId">{{ans.userId}} : {{ans.answerText}} <span *ngIf="que.answerText.toLowerCase()==ans.answerText.toLowerCase()">✔️</span><span *ngIf="que.answerText.toLowerCase()!=ans.answerText.toLowerCase()">❌</span></p>
+                    </div>
+                    <div class="col-md-6">
+                    </div>
+                </div>
+            </ng-container>
+
+        </ng-container>
+    </div>
+</div>

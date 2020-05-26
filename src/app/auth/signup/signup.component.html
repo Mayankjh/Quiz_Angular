@@ -1,0 +1,39 @@
+<div class="col-md-4 offset-md-4 col-sm-6 offset-sm-3 form">
+    <h3 class="head">Register</h3><br>
+    <div>
+        <form [formGroup]="signUpForm" (ngSubmit)="submit()" class="col s12" autocomplete="off">
+
+
+            <label for="first_name">First Name</label>
+            <input (keydown.space)="$event.preventDefault();" formControlName="firstName" id="first_name" type="text" class="form-control" required>
+            <span class="msg" *ngIf="!signUpForm.get('firstName').valid && signUpForm.get('firstName').touched">
+                (First Name required*)<br> </span>
+            <label for="last_name">Last Name</label>
+            <input (keydown.space)="$event.preventDefault();" formControlName="lastName" id="last_name" type="text" class="form-control" required>
+            <span class="msg" *ngIf="!signUpForm.get('lastName').valid && signUpForm.get('lastName').touched">
+                (Last Name required*)<br> </span>
+            <label for="username">Username</label>
+            <input (keydown.space)="$event.preventDefault();" formControlName="username" id="username" type="text" class="form-control" required>
+            <span class="msg" *ngIf="!signUpForm.get('username').valid && signUpForm.get('username').touched">
+                (Username required*)<br> </span>
+            <span class="msg"
+                *ngIf="!signUpForm.get('username').valid && signUpForm.get('username').touched && !signUpForm.get('username').length<6">
+                (Username length should be grater than 6 characters*)<br> </span>
+            <label for="password">Password</label>
+            <input (keydown.space)="$event.preventDefault();" formControlName="password" id="password" type="password" class="form-control" required>
+            <span class="msg" *ngIf="!signUpForm.get('password').valid && signUpForm.get('password').touched">
+                (Password required*)<br> </span>
+            <span class="msg"
+                *ngIf="!signUpForm.get('password').valid && signUpForm.get('password').touched && !signUpForm.get('password').length<8">
+                (Password Length should be grater than 8 characters*)<br> </span>
+
+            <label for="email">Email</label>
+            <input (keydown.space)="$event.preventDefault();" formControlName="email" id="email" type="email" class="form-control" required>
+            <span class="msg" *ngIf="!signUpForm.get('email').valid && signUpForm.get('email').touched">
+                (Email required*)<br> </span>
+            <br>
+            <button [disabled]="signUpForm.invalid" class="btn btn-block btn-outline-success">
+                <i *ngIf="spinner" class="fa fa-spinner fa-spin"></i> Signup
+            </button>
+        </form>
+    </div>

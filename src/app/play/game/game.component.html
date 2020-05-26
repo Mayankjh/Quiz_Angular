@@ -1,0 +1,22 @@
+<div class="col-md-6 offset-md-3 ans" *ngIf="Question">
+    <h3 class="head">Question Details...</h3>
+    <br>
+    <h4>{{Question}}</h4>
+    <hr />
+    <form *ngIf="!Ans" [formGroup]="AnswerForm" (ngSubmit)="SubAns()" class="validate-form" autocomplete="off">
+        <span class="msg" *ngIf="!AnswerForm.get('answerText').valid && AnswerForm.get('answerText').touched">
+            (*Title required)</span>
+        <input formControlName="answerText" type="text" placeholder="Enter your response" name="answerText"
+            class="form-control" required> <br />
+        <button [disabled]="AnswerForm.invalid" class="btn btn-outline-info btn-block">Go</button>
+        <button (click)="Pass()" class="btn btn-outline-info btn-block">Pass</button>
+    </form>
+    <p *ngIf="Ans"> <strong>Your Answer :</strong> {{anstxt}}</p>
+
+</div>
+
+
+<div *ngIf="ended" class="text-center col-md-6 offset-md-3">
+    <h3>Thank you! </h3>
+    <p>That's the end of the quiz :)</p>
+</div>

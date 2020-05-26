@@ -1,0 +1,16 @@
+
+    <div class="col-md-6 offset-md-3 box">
+            <form [formGroup]="CreateQuiz" (ngSubmit)="CreateQ()" class="validate-form" autocomplete="off">
+                <label class="control-label">Enter the name of your quiz to get started</label>
+                <span class="msg" *ngIf="!CreateQuiz.get('Title').valid && CreateQuiz.get('Title').touched">
+                    (*Title required)</span>
+                    <input formControlName="Title" type="text" placeholder="Enter Quiz Title" name="Title" class="form-control" required> <br />
+                <button [disabled]="CreateQuiz.invalid" class="btn btn-outline-info btn-block">Go</button>
+            </form>
+            <br>
+            <div>
+                <a routerLink="" >Take me Back</a>
+            </div>
+        </div>
+
+

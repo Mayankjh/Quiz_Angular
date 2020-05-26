@@ -1,0 +1,24 @@
+<div class="box">
+    <h4> Create Questions</h4>
+<hr />
+    <div class="col-md-6 offset-md-3">
+        <form [formGroup]="CreateQuestion" (ngSubmit)="CreateQue()" class="validate-form" autocomplete="off">
+            <label class="control-label">Enter Question text below</label>
+            <span class="msg" *ngIf="!CreateQuestion.get('QuestionText').valid && CreateQuestion.get('QuestionText').touched">
+                (*Question required)</span>
+                <input formControlName="QuestionText" type="text" placeholder="Enter Question Text" name="QuestionText" class="form-control" required> 
+<br>
+                <label class="control-label">Enter Answer text below</label>
+                <span class="msg" *ngIf="!CreateQuestion.get('AnswerText').valid && CreateQuestion.get('AnswerText').touched">
+                    (*Question required)</span>
+                    <input formControlName="AnswerText" type="text" placeholder="Enter Answer Text" name="AnswerText" class="form-control" required> 
+                    
+                <br />
+            <button [disabled]="CreateQuestion.invalid" class="btn btn-outline-info btn-block">Add</button>
+            
+            </form>
+    </div>
+<div>
+    <a (click)="getAdmin()">Cancel</a>
+</div>
+</div>

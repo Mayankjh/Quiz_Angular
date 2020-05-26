@@ -1,0 +1,27 @@
+h1,h2,h3,h4,p,tr,td{
+    color:white;
+    text-align: center;
+  }
+.head{
+    text-align: center;
+}
+.ans{
+    text-align: center;
+}
+a{
+    cursor: pointer;
+}
+  pagination-controls /deep/ .ng2-pagination li.current {
+    background: #00C851;
+  }
+  .my-pagination /deep/ .ngx-pagination{
+    text-align: center;
+  }
+  pagination-controls /deep/ .ngx-pagination li a{
+    /* background: red; */
+    color: white !important;
+  }
+  pagination-controls /deep/ .ngx-pagination li a:hover{
+    /* background: red; */
+    color: #000 !important;
+  }

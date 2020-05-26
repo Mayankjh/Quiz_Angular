@@ -1,0 +1,27 @@
+<div class="col-md-4 offset-md-4 col-sm-6 offset-sm-3 form">
+    <h3 class="head">Login</h3><br>
+    <div *ngIf="msg!=null" class="alert alert-warning" style="padding: 15px; border-radius: 0px;text-align: center"
+        role="alert">
+        {{msg}}
+    </div>
+    <form [formGroup]="loginForm" (ngSubmit)="submit()" class="validate-form" autocomplete="off">
+    <div>
+        
+        <label for="uname">Username</label>
+        <span class="msg" *ngIf="!loginForm.get('username').valid && loginForm.get('username').touched">
+            (Username required*)</span>
+        <input (keydown.space)="$event.preventDefault();" formControlName="username" type="text" placeholder="Enter Username" name="uname" class="form-control"
+            required>
+        
+        <label for="psw">Password</label>
+        <span class="msg" *ngIf="!loginForm.get('password').valid && loginForm.get('password').touched">
+            (Password required*)</span>
+        <input (keydown.space)="$event.preventDefault();" class="form-control" formControlName="password" type="password" placeholder="Enter Password" name="psw"
+            required>
+        
+    </div><br>
+    <button [disabled]="loginForm.invalid" class="btn btn-block btn-outline-success">
+        <i *ngIf="spinner" class="fa fa-spinner fa-spin"></i>Signin
+    </button>
+    </form>
+</div>

@@ -1,0 +1,19 @@
+ .head{
+   text-align: center;
+ }
+.form{
+  margin-top: 5%;
+  padding: 3%;
+  border:1px solid #f13639;
+  color: white;
+  border-radius: 5px;
+}
+@media screen and (max-width: 500px) {
+  .form{
+    border:0px;
+  }
+}
+.msg{
+  color: #f13639;
+}  
+  
