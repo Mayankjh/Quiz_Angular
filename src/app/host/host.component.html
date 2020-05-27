@@ -29,26 +29,20 @@
                     {{item.code}}
                 </td>
                 <td>
-                    {{item.started}}
+                   <input *ngIf="item.started==true" type="checkbox" checked readonly>
+                   <input *ngIf="!item.started" type="checkbox" readonly> 
                 </td>
                 <td>
                    {{item.createdon}}
                 </td>
                 <td>
-                    <!-- @if (item.Ended)
-                    { -->
                     <p *ngIf="item.ended">
                         <a (click)="getsummary(item.code)">View Summary!</a>
                     </p>
-                    <!-- }
-                    else
-                    { -->
                     <p *ngIf="!item.ended">
-                        <a (click)="QuizSetup(item.code)">Setup</a> |
-                        <a (click)="StartGame(item.code)">Start Game!</a>
-                    </p>
-                    <!-- } -->
-                    
+                        <a (click)="QuizSetup(item.code)">Setup</a> 
+                        <!-- <a (click)="StartGame(item.code)">Start Game!</a> -->
+                    </p>                    
                 </td>
             </tr>
     </ng-container>

@@ -10,8 +10,10 @@
                 <div class="col-md-6"><p>Answer: {{ans.answerText}}</p></div>
         </ng-container> 
         </ul>
+  
+        <h3 *ngIf="automated=='true'">Question changes in {{timeLeft}}s</h3>
     </div>
 
 
-    <a (click)="GetNextQuestion()">Load Next Question</a>
+    <a *ngIf="automated=='false'" (click)="GetNextQuestion()">Load Next Question</a>
 </div>

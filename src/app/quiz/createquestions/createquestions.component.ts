@@ -18,8 +18,8 @@ QuizId;
     const id: string = this.route.snapshot.queryParamMap.get('id');
     this.QuizId = id;
     this.CreateQuestion = new FormGroup({
-      'QuestionText': new FormControl(null, [Validators.required,Validators.pattern('^[A-Za-z][A-Za-z0-9$&+,:;=?@#|<>.^*()%! -]*')]),
-      'AnswerText': new FormControl(null, [Validators.required,Validators.pattern('^[A-Za-z][A-Za-z0-9$&+,:;=?@#|<>.^*()%! -]*')]),
+      'QuestionText': new FormControl(null, [Validators.required,Validators.pattern('^[A-Za-z0-9][A-Za-z0-9$&+,:;=?@#|<>.^*()%! -]*')]),
+      'AnswerText': new FormControl(null, [Validators.required,Validators.pattern('^[A-Za-z0-9][A-Za-z0-9$&+,:;=?@#|<>.^*()%! -]*')]),
       'QuizId': new FormControl(parseInt(id)),
 
     });

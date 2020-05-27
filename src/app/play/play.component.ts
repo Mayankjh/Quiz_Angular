@@ -18,7 +18,6 @@ export class PlayComponent implements OnInit {
    setTimeout(()=>this.checkgamestarted(code),5000);
   }
   checkgamestarted(code){
-    console.log(code,"yo")
     this.restservice.CheckGameStatus(code);
     setTimeout(()=>this.checkgamestarted(code),5000)
   }

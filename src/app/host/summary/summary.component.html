@@ -24,7 +24,7 @@
                 <div *ngIf="que.id==ans.question.id">
 
                     <div class="col-md-6">
-                        <p *ngIf="que.id==ans.questionId">{{ans.userId}} : {{ans.answerText}} <span *ngIf="que.answerText.toLowerCase()==ans.answerText.toLowerCase()">✔️</span><span *ngIf="que.answerText.toLowerCase()!=ans.answerText.toLowerCase()">❌</span></p>
+                        <p *ngIf="que.id==ans.questionId && ans.answerText!=null">{{ans.userId}} : {{ans.answerText}} <span *ngIf="que.answerText.toLowerCase()==ans.answerText.toLowerCase()">✔️</span><span *ngIf="que.answerText.toLowerCase()!=ans.answerText.toLowerCase()">❌</span></p>
                     </div>
                     <div class="col-md-6">
                     </div>

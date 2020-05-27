@@ -50,7 +50,7 @@ CheckGameStatus(code) {
   this.http.get(endpoint + 'api/Play/JoinGame/'+code).subscribe((res) => {
           if(res["res"]=="GetGame"){
             // Swal.fire("Success Join success Taking you to Game Play Zone!");
-            this.router.navigate(['/play/game'],{ queryParams: { id: code },queryParamsHandling: "merge" });
+            this.router.navigate(['/play/game'],{ queryParams: { id: code,automated:res["automated"] },queryParamsHandling: "merge" });
           }
   }, (err) => {
       console.log(err);
@@ -94,8 +94,8 @@ GetAdmin(code) {
   };
 
 //Start Quiz
-StartQuiz(code) {
-  return  this.http.get(endpoint + 'api/Host/StartGame/'+code);
+StartQuiz(code,automated) {
+  return  this.http.get(endpoint + 'api/Host/StartGame/'+code+'?automated='+automated);
    };
 
 //get game

@@ -33,7 +33,9 @@ export class AdminComponent implements OnInit{
     this.router.navigate(['/quiz/createquestion'],{ queryParams: { id:this.id, code:this.code},queryParamsHandling: "merge" });
   }
   StartQ(){
-    this.router.navigate(['/host/details'],{ queryParams: { id:this.id, code:this.code },queryParamsHandling: "merge" });
+    this.router.navigate(['/host/details'],{ queryParams: { id:this.id, code:this.code,que:this.Questions.length,automated:false },queryParamsHandling: "merge" });
   }
-
+  StartAutomated(){
+    this.router.navigate(['/host/details'],{ queryParams: { id:this.id, code:this.code,que:this.Questions.length,automated:true },queryParamsHandling: "merge" });
+  }
 }

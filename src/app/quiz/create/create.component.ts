@@ -16,7 +16,7 @@ export class CreateComponent implements OnInit {
 
   ngOnInit() {
     this.CreateQuiz = new FormGroup({
-      'Title': new FormControl(null, [Validators.required,Validators.pattern('^[A-Za-z][A-Za-z0-9$&+,:;=?@#|<>.^*()%! -]*')])
+      'Title': new FormControl(null, [Validators.required,Validators.pattern('^[A-Za-z0-9][A-Za-z0-9$&+,:;=?@#|<>.^*()%! -]*')])
     });
   }
   CreateQ() {

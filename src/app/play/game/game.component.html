@@ -1,4 +1,4 @@
-<div class="col-md-6 offset-md-3 ans" *ngIf="Question">
+<div class="col-md-6 offset-md-3 ans" *ngIf="!ended">
     <h3 class="head">Question Details...</h3>
     <br>
     <h4>{{Question}}</h4>
@@ -12,7 +12,8 @@
         <button (click)="Pass()" class="btn btn-outline-info btn-block">Pass</button>
     </form>
     <p *ngIf="Ans"> <strong>Your Answer :</strong> {{anstxt}}</p>
-
+    <h3 *ngIf="automated=='true' && !Ans">Question changes in {{timeLeft}}s</h3>
+<p *ngIf="Ans">Please Wait for the next Question to be initiated by the host...</p>
 </div>
 
 
