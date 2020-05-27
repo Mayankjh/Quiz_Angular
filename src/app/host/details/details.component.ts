@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
-import { RestService } from 'src/app/rest.service';
+import { RestService } from 'src/app/services/rest.service';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -24,7 +24,7 @@ export class DetailsComponent implements OnInit {
       console.log(res);
       if(res["res"]=="ended"){
         // Swal.fire("Quiz ended Taking you to summary");
-        this.router.navigate(['/quiz/summary'],{ queryParams: {code:this.code },queryParamsHandling: "merge" });
+        this.router.navigate(['/host/quiz/summary'],{ queryParams: {code:this.code },queryParamsHandling: "merge" });
 
       }
       if(res["res"]!="ended"){
@@ -38,8 +38,7 @@ export class DetailsComponent implements OnInit {
   startQuiz(){
     this.restservice.StartQuiz(this.code).subscribe((res) => {
       if(res["res"]=="ended"){
-        Swal.fire("Quiz ended Taking you to summary");
-        this.router.navigate(['/quiz/summary'],{ queryParams: {code:this.code },queryParamsHandling: "merge" });
+        this.router.navigate(['/host/quiz/summary'],{ queryParams: {code:this.code },queryParamsHandling: "merge" });
       }
       console.log(res);
       if(res["res"]!="ended"){

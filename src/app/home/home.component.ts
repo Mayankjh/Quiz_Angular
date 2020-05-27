@@ -3,8 +3,9 @@ import $ from "jquery";
 import { AuthService } from '../auth/auth.service';
 import Swal from 'sweetalert2'
 import { Router } from '@angular/router';
-import { RestService } from '../rest.service';
+import { RestService } from '../services/rest.service';
 import { FormControl, Validators, FormGroup } from '@angular/forms';
+
 
 @Component({
   selector: 'app-home',

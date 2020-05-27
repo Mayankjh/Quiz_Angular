@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { RestService } from '../rest.service';
+import { RestService } from '../services/rest.service';
 import { Router, ActivatedRoute } from '@angular/router';
 let code;
 

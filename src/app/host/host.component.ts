@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { RestService } from '../rest.service';
+import { RestService } from '../services/rest.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import {NgxPaginationModule} from 'ngx-pagination';
 
@@ -30,7 +30,7 @@ StartGame(code){
   this.router.navigate(['/host/details'],{ queryParams: { code:code },queryParamsHandling: "merge" });
 }
 getsummary(code){
-  this.router.navigate(['/quiz/summary'],{ queryParams: { code:code },queryParamsHandling: "merge" });
+  this.router.navigate(['/host/quiz/summary'],{ queryParams: { code:code },queryParamsHandling: "merge" });
 
 }
 

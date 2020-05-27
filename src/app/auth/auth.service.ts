@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
-import { Config } from '../config.service';
+import { Config } from '../services/config.service';
 import { Subject } from 'rxjs';
 import Swal from 'sweetalert2'
 
