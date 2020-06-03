@@ -11,6 +11,7 @@ export class AuthService {
     path = this.config.path;
     loginMsg = new Subject<any>();
     signupMsg = new Subject<any>();
+    signupSpinner = new Subject<any>();
 
     constructor(private http: HttpClient, private router: Router, private config: Config) {
 
