@@ -13,3 +13,9 @@ text-align: left;
 hr{
   border-top: 1px solid #0560c9;
 }
+.bi{
+  cursor: pointer;
+}
+.que{
+  text-align: center;
+}

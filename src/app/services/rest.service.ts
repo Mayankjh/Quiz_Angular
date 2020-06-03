@@ -121,7 +121,7 @@ getNxtQue(code) {
    };
 
 
-//create question
+//Submit Answer
 SubmitAnswer(obj) {
   console.log(obj)
   this.http.post(endpoint + 'api/Play/SubmitAnswer',obj).subscribe((res) => {
@@ -135,5 +135,32 @@ SubmitAnswer(obj) {
         title: err.status,
         text:err["title"]})
   });
+}
+
+//Delete Question
+DeleteQuestion(queid){
+  return this.http.delete(endpoint+'api/Questions/DeleteQue/'+queid);
+}
+
+//Editquestion
+EditQuestion(obj,queid,id) {
+  console.log(obj,queid)
+  this.http.put(endpoint + 'api/Questions/EditQue/'+queid,obj).subscribe((res) => {
+          console.log(res);
+          const xcode: string = this.route.snapshot.queryParamMap.get('code');
+          Swal.fire("Question Edited Successfully",'success');
+          this.router.navigate(['/quiz/admin'],{ queryParams: { id:id, code:xcode },queryParamsHandling: "merge" });
+
+  }, (err) => {
+      console.log(err);
+      Swal.fire({
+        title: err.status,
+        text:err["title"]})
+  });
+}
+
+//getquestion by Id
+QueById(queid){
+  return this.http.get(endpoint+'api/Questions/GetQue/'+queid);
 }
 }

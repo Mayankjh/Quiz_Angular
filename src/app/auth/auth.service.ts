@@ -9,11 +9,8 @@ import Swal from 'sweetalert2'
 export class AuthService {
 
     path = this.config.path;
-
     loginMsg = new Subject<any>();
     signupMsg = new Subject<any>();
-    loginSpinner = new Subject<any>();
-    signupSpinner = new Subject<any>();
 
     constructor(private http: HttpClient, private router: Router, private config: Config) {
 
@@ -22,7 +19,6 @@ export class AuthService {
     // Login
     signin(obj) {
         this.http.post(this.path + '/users/authenticate/', obj).subscribe((res) => {
-            localStorage.setItem("token", res['token']);
             localStorage.setItem("userid", res['id']);
             localStorage.setItem("FirstName", res['firstName']);
             localStorage.setItem("lastname", res['lastName']);
@@ -34,18 +30,15 @@ export class AuthService {
             if (err.status == 404) {
                 this.loginMsg.next("User not found");
                 Swal.fire("User not found")
-                this.loginSpinner.next(false);
             } else if (err.status == 400) {
                 this.loginMsg.next("Incorrect password");
                 Swal.fire("Incorrect Password or Username")
-                this.loginSpinner.next(false);
             } else {
                 this.loginMsg.next("Internal server error");
                 Swal.fire({
                     title: 'Internal server error',
                     text:err.status
                 })
-                this.loginSpinner.next(false);
             }
         });
     }
@@ -59,8 +52,8 @@ export class AuthService {
         }, (err) => {
             console.log(err);
             Swal.fire({
-                title: 'Some Bad request',
-                text:err
+                title: err["error"]["message"],
+                text:err["status"]
             })
         });
     }
@@ -70,6 +63,7 @@ export class AuthService {
         return localStorage.getItem("token") != null;
     }
 
+    // check user is present or not
     ifusername(){
         return localStorage.getItem("email") != null;
     }

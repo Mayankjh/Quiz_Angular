@@ -10,6 +10,7 @@ import { SharedModule } from '../shared/shared.module';
 import { AdminComponent } from './admin/admin.component';
 import { CreateComponent } from './create/create.component';
 import { CreatequestionsComponent } from './createquestions/createquestions.component';
+import { EditquestionComponent } from './editquestion/editquestion.component';
 
 
 
@@ -17,7 +18,8 @@ import { CreatequestionsComponent } from './createquestions/createquestions.comp
   declarations: [
     AdminComponent,
     CreateComponent,
-    CreatequestionsComponent
+    CreatequestionsComponent,
+    EditquestionComponent
   ],
   imports: [
     QuizRoutingModule,

@@ -1,0 +1,24 @@
+<div class="box">
+    <h4> Edit Questions</h4>
+<hr />
+    <div class="col-md-6 offset-md-3">
+        <form [formGroup]="EditQuestion" (ngSubmit)="EditQue()" class="validate-form" autocomplete="off">
+            <label class="control-label">Edit Question text below</label>
+            <span class="msg" *ngIf="!EditQuestion.get('questionText').valid && EditQuestion.get('questionText').touched">
+                (*Question required)</span>
+                <input formControlName="questionText" type="text" placeholder="Enter Question Text" value="{{Qtext}}" name="questionText" class="form-control" required> 
+<br>
+                <label class="control-label">Edit Answer text below</label>
+                <span class="msg" *ngIf="!EditQuestion.get('answerText').valid && EditQuestion.get('answerText').touched">
+                    (*Answer required)</span>
+                    <input formControlName="answerText" type="text" placeholder="Enter Answer Text" name="answerText" value="{{Atext}}" class="form-control" required> 
+                    
+                <br />
+            <button [disabled]="EditQuestion.invalid" class="btn btn-outline-info btn-block">Add</button>
+            
+            </form>
+    </div>
+<div>
+    <a (click)="getAdmin()">Cancel</a>
+</div>
+</div>

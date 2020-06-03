@@ -9,16 +9,13 @@
 
         </div>
     </div>
-
     <hr />
-
     <h4>Question and Answers</h4>
     <div class="que">
         <ng-container *ngFor="let que of Questions">
-
-
             <div>
-                <p><strong>{{que.questionText}}</strong></p>
+                <p>
+                    <strong>{{que.questionText}}</strong></p>
             </div>
             <ng-container *ngFor="let ans of Answers">
                 <div *ngIf="que.id==ans.question.id">
@@ -30,7 +27,13 @@
                     </div>
                 </div>
             </ng-container>
-
         </ng-container>
+        <hr>
+        <div class="box">
+            <h4>Quiz Scores</h4><br>
+            <div *ngFor="let item of users| keyvalue">
+              <p>{{ item.key }} - {{ item.value }}/{{Questions.length}}</p>  
+              </div>
+        </div>
     </div>
 </div>
